@@ -56,8 +56,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-background"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-primary text-primary-foreground ${
+        isScrolled ? "shadow-lg" : ""
       }`}
     >
       <div className="container mx-auto px-4">
@@ -76,7 +76,7 @@ const Header = () => {
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item.id)}
-                  className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-primary-foreground hover:text-accent font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
                 </button>
@@ -84,7 +84,7 @@ const Header = () => {
                 <Link
                   key={item.label}
                   to={item.path}
-                  className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                  className="text-primary-foreground hover:text-accent font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
                 </Link>
@@ -94,7 +94,7 @@ const Header = () => {
               href="https://api.whatsapp.com/send?phone=556733877740"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+              className="bg-accent text-accent-foreground px-6 py-2.5 rounded-lg hover:bg-accent/90 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
             >
               Fale conosco
             </a>
@@ -102,7 +102,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
+            className="md:hidden p-2 hover:bg-primary-foreground/10 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Menu"
           >
@@ -112,13 +112,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border animate-fade-in">
+          <nav className="md:hidden py-4 border-t border-primary-foreground/20 animate-fade-in">
             {navItems.map((item) => (
               item.id ? (
                 <button
                   key={item.id}
                   onClick={() => handleNavigation(item.id)}
-                  className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                  className="block w-full text-left px-4 py-3 text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                 >
                   {item.label}
                 </button>
@@ -127,7 +127,7 @@ const Header = () => {
                   key={item.label}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                  className="block w-full text-left px-4 py-3 text-primary-foreground hover:bg-primary-foreground/10 transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -137,7 +137,7 @@ const Header = () => {
               href="https://api.whatsapp.com/send?phone=556733877740"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full text-center bg-primary text-primary-foreground px-4 py-3 rounded-lg hover:bg-primary/90 transition-colors mt-2 mx-4"
+              className="block w-full text-center bg-accent text-accent-foreground px-4 py-3 rounded-lg hover:bg-accent/90 transition-colors mt-2 mx-4"
               style={{ width: "calc(100% - 2rem)" }}
             >
               Fale conosco
