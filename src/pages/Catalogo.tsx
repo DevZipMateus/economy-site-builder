@@ -1,9 +1,17 @@
 import { useState } from "react";
+import { Plus, Minus, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
+import Cart from "@/components/Cart";
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 const Catalogo = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const { addItem } = useCart();
+  const { toast } = useToast();
 
   const products = [
     "cartucho_de_tinta_compativel_com_hp_122xl_colorido_preto_13ml_12ml.jpg",
@@ -69,6 +77,37 @@ const Catalogo = () => {
       .join(" ");
   };
 
+  const getQuantity = (productId: string) => quantities[productId] || 1;
+
+  const updateQuantity = (productId: string, delta: number) => {
+    setQuantities((prev) => {
+      const current = prev[productId] || 1;
+      const newValue = Math.max(1, current + delta);
+      return { ...prev, [productId]: newValue };
+    });
+  };
+
+  const handleAddToCart = (product: string) => {
+    const productName = formatProductName(product);
+    const quantity = getQuantity(product);
+    
+    addItem(
+      {
+        id: product,
+        name: productName,
+        image: `/galeria/${product}`,
+      },
+      quantity
+    );
+
+    toast({
+      title: "Produto adicionado!",
+      description: `${quantity}x ${productName}`,
+    });
+
+    setQuantities((prev) => ({ ...prev, [product]: 1 }));
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -88,10 +127,12 @@ const Catalogo = () => {
               {products.map((product, index) => (
                 <div
                   key={index}
-                  className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
-                  onClick={() => setSelectedImage(`/galeria/${product}`)}
+                  className="bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="aspect-square overflow-hidden bg-muted">
+                  <div 
+                    className="aspect-square overflow-hidden bg-muted cursor-pointer group"
+                    onClick={() => setSelectedImage(`/galeria/${product}`)}
+                  >
                     <img
                       src={`/galeria/${product}`}
                       alt={formatProductName(product)}
@@ -99,10 +140,40 @@ const Catalogo = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-sm font-medium text-foreground line-clamp-2">
+                  <div className="p-4 space-y-3">
+                    <h3 className="text-sm font-medium text-foreground line-clamp-2 min-h-[2.5rem]">
                       {formatProductName(product)}
                     </h3>
+                    
+                    <div className="flex items-center gap-2">
+                      <Button
+                        size="icon"
+                        variant="outline"
+                        className="h-9 w-9"
+                        onClick={() => updateQuantity(product, -1)}
+                      >
+                        <Minus className="h-4 w-4" />
+                      </Button>
+                      <span className="w-12 text-center font-medium">
+                        {getQuantity(product)}
+                      </span>
+                      <Button
+                        size="icon"
+                        variant="outline"
+                        className="h-9 w-9"
+                        onClick={() => updateQuantity(product, 1)}
+                      >
+                        <Plus className="h-4 w-4" />
+                      </Button>
+                    </div>
+
+                    <Button
+                      className="w-full"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      Adicionar
+                    </Button>
                   </div>
                 </div>
               ))}
@@ -110,6 +181,7 @@ const Catalogo = () => {
           </div>
         </section>
       </main>
+      <Cart />
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-4xl">
