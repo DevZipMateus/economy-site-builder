@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus, Minus, ShoppingCart } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Cart from "@/components/Cart";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -181,6 +182,7 @@ const Catalogo = () => {
           </div>
         </section>
       </main>
+      <Footer />
       <Cart />
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
