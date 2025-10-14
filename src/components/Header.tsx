@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +32,12 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: "Início", id: "hero" },
-    { label: "Sobre", id: "about" },
-    { label: "Produtos", id: "products" },
-    { label: "Serviços", id: "services" },
-    { label: "Contato", id: "contact" },
+    { label: "Início", id: "hero", path: "/" },
+    { label: "Sobre", id: "about", path: "/" },
+    { label: "Produtos", id: "products", path: "/" },
+    { label: "Serviços", id: "services", path: "/" },
+    { label: "Catálogo", path: "/catalogo" },
+    { label: "Contato", id: "contact", path: "/" },
   ];
 
   return (
@@ -45,23 +48,39 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <button
-            onClick={() => scrollToSection("hero")}
+          <Link
+            to="/"
             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
           >
             <img src={logo} alt="Economy Suprimentos" className="h-12 w-auto" />
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {item.label}
-              </button>
+              item.id ? (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      window.location.href = "/#" + item.id;
+                    } else {
+                      scrollToSection(item.id);
+                    }
+                  }}
+                  className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <a
               href="https://api.whatsapp.com/send?phone=556733877740"
@@ -87,13 +106,30 @@ const Header = () => {
         {isMobileMenuOpen && (
           <nav className="md:hidden py-4 border-t border-border animate-fade-in">
             {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
-              >
-                {item.label}
-              </button>
+              item.id ? (
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      window.location.href = "/#" + item.id;
+                    } else {
+                      scrollToSection(item.id);
+                    }
+                  }}
+                  className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <a
               href="https://api.whatsapp.com/send?phone=556733877740"
