@@ -50,44 +50,44 @@ const Products = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="products" className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-foreground">
               Nossos produtos
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Tudo o que você precisa para suas impressoras com a melhor relação custo-benefício do mercado
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {products.map((product, index) => (
               <div
                 key={index}
-                className="bg-card rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up"
+                className="bg-card rounded-xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-primary/10 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-                  <product.icon className="text-primary" size={28} />
+                <div className="bg-primary/10 w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
+                  <product.icon className="text-primary" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">
                   {product.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   {product.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12 px-4">
             <a
               href="https://api.whatsapp.com/send?phone=556733877740"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+              className="inline-block w-full sm:w-auto bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl text-base sm:text-lg"
             >
               Solicite seu orçamento
             </a>

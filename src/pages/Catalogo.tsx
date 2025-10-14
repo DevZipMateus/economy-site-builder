@@ -112,18 +112,18 @@ const Catalogo = () => {
     <div className="min-h-screen">
       <Header />
       <main className="pt-20">
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <section className="py-12 sm:py-16 bg-gradient-to-br from-primary/5 to-background">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-12">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
                 Catálogo de produtos
               </h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
                 Confira nossa linha completa de cartuchos, toners e tintas para impressoras
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {products.map((product, index) => (
                 <div
                   key={index}
@@ -140,38 +140,38 @@ const Catalogo = () => {
                       loading="lazy"
                     />
                   </div>
-                  <div className="p-4 space-y-3">
-                    <h3 className="text-sm font-medium text-foreground line-clamp-2 min-h-[2.5rem]">
+                  <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+                    <h3 className="text-xs sm:text-sm font-medium text-foreground line-clamp-2 min-h-[2.5rem]">
                       {formatProductName(product)}
                     </h3>
                     
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
                       <Button
                         size="icon"
                         variant="outline"
-                        className="h-9 w-9"
+                        className="h-8 w-8 sm:h-9 sm:w-9"
                         onClick={() => updateQuantity(product, -1)}
                       >
-                        <Minus className="h-4 w-4" />
+                        <Minus className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
-                      <span className="w-12 text-center font-medium">
+                      <span className="w-10 sm:w-12 text-center font-medium text-sm sm:text-base">
                         {getQuantity(product)}
                       </span>
                       <Button
                         size="icon"
                         variant="outline"
-                        className="h-9 w-9"
+                        className="h-8 w-8 sm:h-9 sm:w-9"
                         onClick={() => updateQuantity(product, 1)}
                       >
-                        <Plus className="h-4 w-4" />
+                        <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     </div>
 
                     <Button
-                      className="w-full"
+                      className="w-full text-xs sm:text-sm h-8 sm:h-10"
                       onClick={() => handleAddToCart(product)}
                     >
-                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                       Adicionar
                     </Button>
                   </div>

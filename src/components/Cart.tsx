@@ -39,12 +39,12 @@ const Cart = () => {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button
-          className="fixed bottom-24 right-6 h-14 w-14 rounded-full shadow-lg hover:shadow-xl transition-all z-40"
+          className="fixed bottom-16 right-4 sm:bottom-24 sm:right-6 h-12 w-12 sm:h-14 sm:w-14 rounded-full shadow-lg hover:shadow-xl transition-all z-40"
           size="icon"
         >
-          <ShoppingCart className="h-6 w-6" />
+          <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold">
+            <span className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-destructive text-destructive-foreground h-5 w-5 sm:h-6 sm:w-6 rounded-full flex items-center justify-center text-xs font-bold">
               {totalItems}
             </span>
           )}
