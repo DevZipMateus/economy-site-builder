@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,19 @@ const Header = () => {
         behavior: "smooth"
       });
       setIsMobileMenuOpen(false);
+    }
+  };
+
+  const handleNavigation = (id: string) => {
+    if (location.pathname !== "/") {
+      // Se não estiver na home, navega primeiro e depois rola
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 100);
+    } else {
+      // Se já estiver na home, só rola
+      scrollToSection(id);
     }
   };
 
@@ -61,13 +75,7 @@ const Header = () => {
               item.id ? (
                 <button
                   key={item.id}
-                  onClick={() => {
-                    if (location.pathname !== "/") {
-                      window.location.href = "/#" + item.id;
-                    } else {
-                      scrollToSection(item.id);
-                    }
-                  }}
+                  onClick={() => handleNavigation(item.id)}
                   className="text-foreground hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
@@ -109,13 +117,7 @@ const Header = () => {
               item.id ? (
                 <button
                   key={item.id}
-                  onClick={() => {
-                    if (location.pathname !== "/") {
-                      window.location.href = "/#" + item.id;
-                    } else {
-                      scrollToSection(item.id);
-                    }
-                  }}
+                  onClick={() => handleNavigation(item.id)}
                   className="block w-full text-left px-4 py-3 text-foreground hover:bg-muted transition-colors"
                 >
                   {item.label}
