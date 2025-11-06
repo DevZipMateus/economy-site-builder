@@ -124,6 +124,14 @@ const Catalogo = () => {
               </p>
             </div>
 
+            <div className="mb-8 sm:mb-12 text-center">
+              <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border-l-4 border-primary rounded-lg p-6 sm:p-8 max-w-3xl mx-auto shadow-lg">
+                <p className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground">
+                  Se não encontrou o seu produto, é só nos chamar! Estamos prontos pra te atender.
+                </p>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {products.map((product, index) => (
                 <div
