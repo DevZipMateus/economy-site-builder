@@ -89,7 +89,7 @@ const Footer = () => {
                     (67) 99294-5076
                   </a>
                   <a href="tel:+556733877740" className="hover:text-accent transition-colors block mt-1">
-                    (67) 3387-7740
+                    (67) 3387-7740 - Fixo
                   </a>
                 </div>
               </li>
