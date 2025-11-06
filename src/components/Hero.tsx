@@ -63,8 +63,8 @@ const Hero = () => {
               <div className="text-sm sm:text-base text-primary-foreground/80">Qualidade garantida</div>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
-              <div className="text-3xl sm:text-4xl font-bold mb-2">24h</div>
-              <div className="text-sm sm:text-base text-primary-foreground/80">Atendimento ágil</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-2">R$ 0</div>
+              <div className="text-sm sm:text-base text-primary-foreground/80">Taxa de entrega</div>
             </div>
           </div>
         </div>
