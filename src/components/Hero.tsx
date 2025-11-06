@@ -38,7 +38,7 @@ const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
             <a
-              href="https://api.whatsapp.com/send?phone=556733877740"
+              href="https://api.whatsapp.com/send?phone=5567992945076"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto group bg-accent text-accent-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-accent/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center justify-center gap-2 text-base sm:text-lg"

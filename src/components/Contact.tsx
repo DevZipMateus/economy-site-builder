@@ -5,8 +5,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Telefone",
-      content: "(67) 3387-7740",
-      link: "tel:+556733877740"
+      content: "(67) 99294-5076",
+      link: "tel:+5567992945076"
     },
     {
       icon: Mail,
@@ -106,7 +106,7 @@ const Contact = () => {
               ))}
             </div>
             <a
-              href="https://api.whatsapp.com/send?phone=556733877740"
+              href="https://api.whatsapp.com/send?phone=5567992945076"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block w-full sm:w-auto bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl text-base sm:text-lg"

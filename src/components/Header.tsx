@@ -77,7 +77,7 @@ const Header = () => {
                 </button> : <Link key={item.label} to={item.path} className="text-primary-foreground hover:text-accent font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all after:duration-300 hover:after:w-full">
                   {item.label}
                 </Link>)}
-            <a href="https://api.whatsapp.com/send?phone=556733877740" target="_blank" rel="noopener noreferrer" className="bg-accent text-accent-foreground px-6 py-2.5 rounded-lg hover:bg-accent/90 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
+            <a href="https://api.whatsapp.com/send?phone=5567992945076" target="_blank" rel="noopener noreferrer" className="bg-accent text-accent-foreground px-6 py-2.5 rounded-lg hover:bg-accent/90 transition-all duration-300 font-medium shadow-md hover:shadow-lg">
               Fale conosco
             </a>
           </nav>
@@ -95,7 +95,7 @@ const Header = () => {
                 </button> : <Link key={item.label} to={item.path} onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-left px-4 py-3 text-primary-foreground hover:bg-primary-foreground/10 transition-colors">
                   {item.label}
                 </Link>)}
-            <a href="https://api.whatsapp.com/send?phone=556733877740" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-accent text-accent-foreground px-4 py-3 rounded-lg hover:bg-accent/90 transition-colors mt-2 mx-4" style={{
+            <a href="https://api.whatsapp.com/send?phone=5567992945076" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-accent text-accent-foreground px-4 py-3 rounded-lg hover:bg-accent/90 transition-colors mt-2 mx-4" style={{
           width: "calc(100% - 2rem)"
         }}>
               Fale conosco
