@@ -24,18 +24,8 @@ const Products = () => {
     },
     {
       icon: Droplet,
-      title: "Refil de tinta Epson",
-      description: "Refis de alta qualidade para impressoras Epson"
-    },
-    {
-      icon: Droplet,
-      title: "Refil de tinta Canon",
-      description: "Refis compatíveis com toda linha Canon"
-    },
-    {
-      icon: Droplet,
-      title: "Refil de tinta HP",
-      description: "Refis específicos para impressoras HP"
+      title: "Refil de tintas",
+      description: "Refis de alta qualidade para as marcas Brother, Canon, Epson e HP"
     },
     {
       icon: FileText,
