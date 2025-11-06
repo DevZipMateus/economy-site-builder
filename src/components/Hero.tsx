@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Truck } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const Hero = () => {
@@ -63,8 +63,10 @@ const Hero = () => {
               <div className="text-sm sm:text-base text-primary-foreground/80">Qualidade garantida</div>
             </div>
             <div className="animate-slide-up" style={{ animationDelay: "0.6s" }}>
-              <div className="text-3xl sm:text-4xl font-bold mb-2">R$ 0</div>
-              <div className="text-sm sm:text-base text-primary-foreground/80">Taxa de entrega</div>
+              <div className="flex items-center justify-center mb-2">
+                <Truck className="w-10 h-10 sm:w-12 sm:h-12" />
+              </div>
+              <div className="text-sm sm:text-base text-primary-foreground/80">Delivery grátis</div>
             </div>
           </div>
         </div>
