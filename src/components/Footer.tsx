@@ -84,22 +84,19 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Phone size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="tel:+5567992945076" className="hover:text-accent transition-colors">
-                  (67) 99294-5076
-                </a>
+                <div>
+                  <a href="tel:+5567992945076" className="hover:text-accent transition-colors block">
+                    (67) 99294-5076
+                  </a>
+                  <a href="tel:+556733877740" className="hover:text-accent transition-colors block mt-1">
+                    (67) 3387-7740
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-2">
                 <Mail size={16} className="mt-0.5 flex-shrink-0" />
                 <a href="mailto:economysuprimentos@hotmail.com" className="hover:text-accent transition-colors break-all">
                   economysuprimentos@hotmail.com
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="https://maps.google.com/?q=Rua+Osmar+de+Andrade,+333+Jd+Colibri+Campo+Grande+MS" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                  Rua Osmar de Andrade, 333<br />
-                  Jd Colibri - Campo Grande/MS<br />
-                  79.071-124
                 </a>
               </li>
             </ul>

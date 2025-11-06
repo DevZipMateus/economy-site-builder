@@ -15,12 +15,6 @@ const Contact = () => {
       link: "mailto:economysuprimentos@hotmail.com"
     },
     {
-      icon: MapPin,
-      title: "Endereço",
-      content: "Rua Osmar de Andrade, 333 Jd Colibri - Campo Grande/MS - 79.071-124",
-      link: "https://maps.google.com/?q=Rua+Osmar+de+Andrade,+333+Jd+Colibri+Campo+Grande+MS"
-    },
-    {
       icon: Clock,
       title: "Horário de funcionamento",
       content: "Segunda a Sexta: 07:30 às 17:30 | Sábado: 07:30 às 11:30",
